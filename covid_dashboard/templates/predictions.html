@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% set active_page = "predictions" %}
+
+{% block content %}
+
+<!--{% include 'flashed_messages.html' %}-->
+
+<div class="content col-lg-4 pt-5">
+  <div class="alert alert-warning" role="alert">
+    Los modelos para predecir incidencia están todavía en fase de desarollo y tienen <a href="{{ url('about') }}#limitaciones-del-modelo">limitaciones</a>.
+    Los resultados preliminares que se ofrecen deben ser tomados con pinzas.
+  </div>
+</div>
+
+<div class="embed-responsive embed-responsive-16by9" >
+  <iframe class="embed-responsive-item"src="http://localhost:{{ ports['pred-inc-map.py'] }}" allowfullscreen></iframe>
+</div>
+
+<div class="embed-responsive embed-responsive-16by9" >
+  <iframe class="embed-responsive-item"src="http://localhost:{{ ports['pred-inc.py'] }}" allowfullscreen></iframe>
+</div>
+
+
+{% endblock %}

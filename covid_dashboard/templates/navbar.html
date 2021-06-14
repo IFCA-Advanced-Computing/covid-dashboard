@@ -1,0 +1,40 @@
+{% set active_page = active_page|default('predictions') -%}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="container">
+    <h2><span class="fas fa-shield-virus" style="color: #010C94;"></span> Covid Dashboard </h2>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+<!--      <li class="nav-item {% if active_page == 'home' %} active{% endif %}">-->
+<!--        <a class="nav-link" href="{{ url('home') }}">Inicio</a>-->
+<!--      </li>-->
+
+      <li class="nav-item dropdown {% if active_page == 'datos' %} active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Datos COVID
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{ url('mobility') }}">Movilidad</a>
+          <a class="dropdown-item" href="{{ url('incidence') }}">Incidencia</a>
+        </div>
+      </li>
+
+      <li class="nav-item {% if active_page == 'predictions' %} active{% endif %}">
+        <a class="nav-link" href="{{ url('predictions') }}">Predicciones</a>
+      </li>
+
+      <li class="nav-item {% if active_page == 'about' %} active{% endif %}">
+        <a class="nav-link" href="{{ url('about') }}">Sobre</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

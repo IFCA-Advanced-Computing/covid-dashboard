@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% set active_page = "about" %}
+
+{% block content %}
+
+<!--{% include 'flashed_messages.html' %}-->
+
+<div class="content justify-content-left pt-5 pb-5 col-lg-4">
+
+<p>Este Dashboard ha sido desarollado por el <a href="https://ifca.unican.es/">Instituto de Física de Cantabria</a> con financiación del <a href="https://www.cantabria.es/">Gobierno de Cantabria</a> y el <a href="https://distancia-covid.csic.es/">CSIC</a>.</p>
+<h1 id="los-datos-y-el-modelo">Los datos y el modelo</h1>
+<p>Usamos modelos de Deep Learning entrenados en datos públicos de movilidad e incidencia para estimar la incidencia futura de COVID en cada provincia de España.</p>
+<p>Para explorar más en detalle el código, véanse los siguientes repositorios de Github:</p>
+<ul>
+<li><p><a href="https://github.com/IFCA/mitma-covid">IFCA/mitma-covid</a> para sacar los datos de movilidad del Ministerio de Transportes.</p>
+</li>
+<li><p><a href="https://github.com/IFCA/covid-risk-map">IFCA/covid-risk-map</a> para agrupar los datos de incidencia con los datos de movilidad.</p>
+</li>
+<li><p><a href="https://github.com/IFCA/covid-dl">IFCA/covid-dl</a> para entrenar los modelos de Deep Learning para predecir las futuras incidencias.</p>
+</li>
+</ul>
+
+<h1 id="limitaciones-del-modelo">Limitaciones del modelo</h1>
+<p>Existen <a href="https://theconversation.com/se-puede-predecir-la-evolucion-de-una-pandemia-147782">argumentos sólidos</a> por los cúales no se puede predecir la evolución de la pandemia a más de 1 semana vista.</p>
+<p>Incluso dentro de este horizonte temporal nuestro modelo es muy mejorable por muchos motivos:</p>
+<ul>
+<li>su sencillez (solo necesita datos de incidencia y movilidad) es su debilidad: la evolución del COVID depende de muchos más factores</li>
+<li>incluso los pocos datos que usamos están lejos de ser perfectos:<ul>
+<li>En el caso de la incidencia existen los problemas de sobra ya conocidos: el número de pruebas fue variando a lo largo de la pandemia, los asintomáticos muchas veces no se detectan, las comunidades reportan números de forma distinta, etc.</li>
+<li>En el caso de la movilidad, aunque los datos son completos y hómogeneos, no dejan de ser imprecisos por su naturaleza. Al estar agregados por municipios es imposible saber que desplazamientos han sido de mucho riesgo (ir al bar) o de poco riesgo (salir a correr). Todos cuentan lo mismo.</li>
+</ul>
+</li>
+<li>y aunque el modelo consiguiese apender a predecir la pandemia, esta es por naturaleza cambiante (eg. surgen nuevas variantes) por lo que las predicciones a largo plazo están destinadas a equivocarse.</li>
+</ul>
+
+
+<img src="/static/images/footer.png" class="img-fluid pt-5">
+
+</div>
+
+{% endblock %}

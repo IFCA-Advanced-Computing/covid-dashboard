@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% set active_page = "datos" %}
+
+{% block content %}
+
+<!--{% include 'flashed_messages.html' %}-->
+
+<div class="content text-center pt-5 pb-5 col-lg-4">
+<h1>Incidencia a 7 días</h1>
+</div>
+
+<div class="embed-responsive embed-responsive-16by9" >
+  <iframe class="embed-responsive-item"src="http://localhost:{{ ports['datos-inc-map.py'] }}" allowfullscreen></iframe>
+</div>
+
+<div class="embed-responsive embed-responsive-16by9" >
+  <iframe class="embed-responsive-item"src="http://localhost:{{ ports['datos-inc.py'] }}" allowfullscreen></iframe>
+</div>
+
+
+{% endblock %}

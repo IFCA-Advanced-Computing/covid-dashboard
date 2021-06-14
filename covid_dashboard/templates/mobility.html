@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% set active_page = "datos" %}
+
+{% block content %}
+
+<!--{% include 'flashed_messages.html' %}-->
+
+<div class="content text-center pt-5 pb-5 col-lg-4">
+<h1>Movilidad</h1>
+
+<!--  <iframe width="800" height="600" src="https://flowmap.blue/15kwLB4baXZ7jpip8q0JjgR6zDoS5Gt3gMLCTUAboQxk/embed" frameborder="0" allowfullscreen></iframe>-->
+  <iframe width="1000" height="800" src="https://flowmap.blue/from-url?flows=https://raw.githubusercontent.com/IFCA/mitma-covid/main/data/processed/flowmap-blue/flows.csv&locations=https://raw.githubusercontent.com/IFCA/mitma-covid/main/data/processed/flowmap-blue/locations.csv&f=13&col=BurgYl&c=0&bo=100/embed" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+{% endblock %}
+
