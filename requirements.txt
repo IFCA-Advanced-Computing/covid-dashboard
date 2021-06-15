@@ -4,19 +4,18 @@
 pbr>=4.1.0
 
 aiohttp[speedups]>=3.6.2
-aiohttp_jinja2
-aiohttp_session[secure]
-aiohttp_session[aiomcache]
-aiomcache
-aiohttp_security
+aiohttp_jinja2>=1.4.2
+aiohttp_session[secure]>=2.9.0
+aiohttp_session[aiomcache]>=2.9.0
+aiomcache>=0.6.0
+aiohttp_security>=0.4.0
+aiohttp_session_flash>=0.0.4
 
-aiohttp_session_flash
-
-cryptography
+cryptography>=3.1.1
 
 oslo.concurrency>=4.4.0 # Apache-2.0
 oslo.config>=2.3.0 # Apache-2.0
 oslo.log>=1.8.0 # Apache-2.0
 
 pyyaml
-jinja2
+jinja2>=2.11.2
