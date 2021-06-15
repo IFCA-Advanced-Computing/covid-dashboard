@@ -2,6 +2,8 @@ import os
 import signal
 import subprocess
 
+import click
+
 from covid_dashboard import config
 from covid_dashboard.paths import PATHS
 
@@ -20,22 +22,30 @@ def kill_process(port):
         os.kill(int(pid), signal.SIGTERM)
 
 
-def refresh_apps(iniport=7000):
-    print('Refreshing Dash apps ...')
+def refresh_apps(iniport=7000, kill=False):
     apps = os.listdir(app_path)
     ports = range(iniport, iniport + len(apps))
 
     # Kill old processes
+    print('Killing Dash apps ...')
     for p in ports:
         kill_process(p)
 
     # Launch new processes
-    for f, p in zip(apps, ports):
-        fpath = app_path / f
-        print(fpath)
-        _ = subprocess.run(f'python {fpath} --port {p} &', shell=True, check=True)
+    if not kill:
+        print('Launching Dash apps ...')
+        for f, p in zip(apps, ports):
+            fpath = app_path / f
+            print(fpath)
+            _ = subprocess.run(f'python3 {fpath} --port {p} &', shell=True, check=True)
+
+
+@click.command()
+@click.option('--kill', is_flag=True)
+def cli(kill):
+    refresh_apps(CONF.dash_iniport, kill=kill)
 
 
 if __name__ == '__main__':
-    refresh_apps(CONF.dash_iniport)
-    # kill_process(8070)
+    cli()
+    # refresh_apps(CONF.dash_iniport, kill=False)
