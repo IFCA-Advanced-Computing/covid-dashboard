@@ -37,5 +37,5 @@ def refresh_apps(iniport=7000):
 
 
 if __name__ == '__main__':
-    refresh_apps(CONF.dash_port)
+    refresh_apps(CONF.dash_iniport)
     # kill_process(8070)
