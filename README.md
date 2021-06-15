@@ -7,8 +7,9 @@ This is the dashboard that integrates visualizations and data scattered accross 
 * [IFCA/covid-risk-map](https://github.com/IFCA/covid-risk-map) that integrates mobility data with incidence data.
 * [IFCA/covid-dl](https://github.com/IFCA/covid-dl) to train the Deep Learning models to predict future incidence.
 
-The safest way to run the Dashboard will all it's dependencies is to run the provided Dockerfile.
-If your envirronment is already prepared you can:
+If you want to run the Dashboard check `deployment/setup_cloud.sh` for the steps to follow (you may try to run it out of the box if you use `/home/ubuntu` as main path).
+
+If your environment is already prepared you can:
 * run the Dash apps without the Dashboard templating with:
     ```bash
     python dash.py
