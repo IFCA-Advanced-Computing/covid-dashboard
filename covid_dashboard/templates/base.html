@@ -27,6 +27,17 @@
 
 <div class="container-fluid">
   <div class="row">
+    <div class="content col-lg-4 pt-5">
+      <div class="alert alert-danger" role="alert">
+        El Dashboard no está actualizado a la fecha más reciente porque desde el 10 de Mayo el
+        Ministerio de Transportes (MITMA) ha dejado de publicar los datos de movilidad,
+        <a href="{{ url('about') }}#los-datos-y-el-modelo">necesarios</a> para hacer
+        las predicciones.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     {% block content %}{% endblock %}
   </div>
 </div>

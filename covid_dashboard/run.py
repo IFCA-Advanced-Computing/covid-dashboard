@@ -41,7 +41,7 @@ def main():
 
     LOG.info("Starting COVID dashboard version %s", covid_dashboard.__version__)
 
-    dash.refresh_apps(iniport=CONF.dash_iniport)
+    dash.refresh_apps()
     app = covid_dashboard.init(sys.argv[1:])
 
     web.run_app(
