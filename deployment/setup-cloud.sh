@@ -1,7 +1,7 @@
 # Script to setup the dashboard in Cloud machine
 
-# Remember to mount the volume with mitma data 
-# in /data/mitma-covid. If the volume with data is not 
+# Remember to mount the volume with mitma data
+# in /data/mitma-covid. If the volume with data is not
 # available replace line 40:
 # python3 src/process.py
 # with:
@@ -17,8 +17,9 @@
 # several scripts before launching the dashboard so I might well
 # run everything from start in a single script.
 
-
 # I should do this properly with python environments
+
+sudo chmod -R 777 /data/mitma-covid
 
 sudo apt install python3-pip
 sudo apt install libopenblas-dev

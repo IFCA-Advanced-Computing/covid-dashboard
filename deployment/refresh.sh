@@ -1,7 +1,6 @@
 # Script to refresh the Dashboard
 
-# Run this file daily as cron job 
-
+# Run this file daily as cron job
 
 cd /home/ubuntu/covid
 
@@ -28,4 +27,3 @@ python3 src/predict.py
 # Launch the Dashboard
 cd /home/ubuntu/covid/covid-dashboard
 python3 covid_dashboard/run.py
-
