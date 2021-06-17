@@ -24,6 +24,7 @@ sudo chmod -R 777 /data/mitma-covid
 sudo apt install python3-pip
 sudo apt install libopenblas-dev
 echo 'alias python=python3' >> ~/.bashrc
+echo 'export COVID_PROXY_IP="193.146.75.241"' >> ~/.bashrc
 source ~/.bashrc
 
 rm -r /home/ubuntu/covid

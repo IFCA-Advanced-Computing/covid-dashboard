@@ -4,10 +4,10 @@
 
 cd /home/ubuntu/covid
 
-cd mitma-covid && git pull && cd ..
-cd covid-risk-map && git pull && cd ..
-cd covid-dl && git pull && cd ..
-cd covid-dashboard && git pull && pip install -e . && cd ..
+cd mitma-covid && git reset --hard && git pull && cd ..
+cd covid-risk-map && git reset --hard && git pull && cd ..
+cd covid-dl && git reset --hard && git pull && cd ..
+cd covid-dashboard && git reset --hard && git pull && cd ..
 
 # Generate a flux file from the database
 cd /home/ubuntu/covid/mitma-covid
@@ -15,8 +15,8 @@ python3 src/data.py --update
 
 # Generate incidence data
 cd /home/ubuntu/covid/covid-risk-map
-curl -k -o data/raw/casos_tecnica_provincias.csv https://cnecovid.isciii.es/covid19/resources/casos_tecnica_provincia.csv
-curl -k -o data/raw/COVID19_municipalizado.csv https://serviweb.scsalud.es:10443/ficheros/COVID19_municipalizado.csv
+curl -k -o data/raw/casos_tecnica_provincias.csv https://cnecovid.isciii.es/covid19/resources/casos>
+curl -k -o data/raw/COVID19_municipalizado.csv https://serviweb.scsalud.es:10443/ficheros/COVID19_m>
 python3 src/data/make_dataset.py data
 
 # Make predictions
