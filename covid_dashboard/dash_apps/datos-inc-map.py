@@ -34,7 +34,7 @@ X = X.set_index(['date'])
 X = X[['province', 'province id', 'incidence 7']]
 X['province id'] = X['province id'].apply('{:02d}'.format)
 
-with open(PATHS.covid_risk_map / 'raw' / 'provincias-espana.geojson', 'r') as f:
+with open(PATHS.covid_risk_map / 'external' / 'provincias-espana.geojson', 'r') as f:
     provinces_geo = json.load(f)
 
 

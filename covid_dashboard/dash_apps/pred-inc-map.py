@@ -54,7 +54,7 @@ pred['province id'] = pred['province id'].apply('{:02d}'.format)
 dates = pred.index.unique()
 
 # Load province's geojson
-with open(PATHS.covid_risk_map / 'raw' / 'provincias-espana.geojson', 'r') as f:
+with open(PATHS.covid_risk_map / 'external' / 'provincias-espana.geojson', 'r') as f:
     provinces_geo = json.load(f)
 
 # Drop provinces not present in predictions
