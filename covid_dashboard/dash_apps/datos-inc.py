@@ -26,17 +26,12 @@ from covid_dashboard.paths import PATHS
 
 
 # Load data
-X = pd.read_csv(PATHS.covid_risk_map / 'processed' / 'provinces-incidence.csv',
-                header=[0, 1])
-X = X.droplevel(1, axis='columns')
+X = pd.read_csv(PATHS.covid_risk_map / 'processed' / 'provinces-incidence.csv')
 X = X.set_index(['date', 'province'])
 X = X[['incidence 7']]
 
-pred = pd.read_csv(PATHS.covid_dl / 'predictions' / 'predictions.csv',
-                   index_col=[0, 1])
-
 # Plot
-provinces = pred.index.get_level_values('province').unique()
+provinces = X.index.get_level_values('province').unique()
 dates = X.index.get_level_values('date').unique()
 start = pd.to_datetime(max(dates)) + pd.DateOffset(days=-30)
 dend = pd.to_datetime(max(dates))
@@ -49,7 +44,6 @@ clist = colors.qualitative.Dark24
 ymax = 0
 for i, p in enumerate(provinces):
     a = X['incidence 7'].xs(p, level='province')
-    b = pred.xs(p, level='province')
     c = colors.hex_to_rgb(clist[i % len(clist)])
 
     fig.add_trace(go.Scatter(name=p,

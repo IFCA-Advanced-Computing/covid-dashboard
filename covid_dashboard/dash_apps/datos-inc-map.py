@@ -27,16 +27,13 @@ from covid_dashboard.paths import PATHS
 
 
 # Load data
-X = pd.read_csv(PATHS.covid_risk_map / 'processed' / 'provinces-incidence.csv',
-                header=[0, 1])
-X = X.droplevel(1, axis='columns')
+X = pd.read_csv(PATHS.covid_risk_map / 'processed' / 'provinces-incidence.csv')
 X = X.set_index(['date'])
 X = X[['province', 'province id', 'incidence 7']]
 X['province id'] = X['province id'].apply('{:02d}'.format)
 
 with open(PATHS.covid_risk_map / 'external' / 'provincias-espana.geojson', 'r') as f:
     provinces_geo = json.load(f)
-
 
 # Plot
 @click.command()
