@@ -21,7 +21,7 @@ import aiohttp_jinja2
 from covid_dashboard.paths import PATHS
 from covid_dashboard.dash import ports_d
 
-
+dash_host = os.environ.get('COVID_PROXY_IP') or '0.0.0.0'
 routes = web.RouteTableDef()
 
 @routes.get('/', name='home')
@@ -52,6 +52,7 @@ async def mobility(request):
 @routes.get('/incidence', name='incidence')
 @aiohttp_jinja2.template('incidence.html')
 async def incidence(request):
+    request.context['host'] = dash_host
     request.context['ports'] = ports_d
     return request.context
 
@@ -59,5 +60,6 @@ async def incidence(request):
 @routes.get('/predictions', name='predictions')
 @aiohttp_jinja2.template('predictions.html')
 async def predictions(request):
+    request.context['host'] = dash_host
     request.context['ports'] = ports_d
     return request.context

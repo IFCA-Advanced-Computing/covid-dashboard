@@ -79,7 +79,7 @@ def run(port):
                   ),
     ])
 
-    app.run_server(debug=False, port=port)
+    app.run_server(debug=False, host='0.0.0.0', port=port)
 
 
 if __name__ == '__main__':
