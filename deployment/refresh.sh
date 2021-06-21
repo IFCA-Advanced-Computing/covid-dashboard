@@ -16,8 +16,8 @@ cd covid-dashboard && git reset --hard && git pull && cd ..
 
 # Generate incidence data
 cd /home/ubuntu/covid/covid-risk-map
-curl -k -o data/raw/casos_tecnica_provincias.csv https://cnecovid.isciii.es/covid19/resources/casos>
-curl -k -o data/raw/COVID19_municipalizado.csv https://serviweb.scsalud.es:10443/ficheros/COVID19_m>
+curl -k -o data/raw/casos_tecnica_provincias.csv https://cnecovid.isciii.es/covid19/resources/casos_tecnica_provincia.csv
+curl -k -o data/raw/COVID19_municipalizado.csv https://serviweb.scsalud.es:10443/ficheros/COVID19_municipalizado.csv
 python3 src/data/make_dataset.py data
 
 # Make predictions
