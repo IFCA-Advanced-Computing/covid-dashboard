@@ -27,4 +27,5 @@ python3 src/data/make_dataset.py data
 
 # Launch the Dashboard
 cd /home/ubuntu/covid/covid-dashboard
-python3 covid_dashboard/run.py
+lsof -t -i:8080  # kill old dashboard
+nohup python3 covid_dashboard/run.py &
